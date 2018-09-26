@@ -1,0 +1,10 @@
+.movie-container {
+    height: 40%;
+    width: 25%;
+}
+
+.movie-image {
+    height: inherit;
+    width: inherit;
+    object-fit: contain;
+}

@@ -1,0 +1,52 @@
+*{
+  text-decoration: none;
+  font-family: 'Patrick Hand', cursive;
+  background-color: black;
+  color: white;
+}
+
+.main-links {
+  float: left;
+  color: white;
+  padding-right: 1%;
+}
+
+#logo {
+  color: rgb(0, 204, 255);
+  float: right;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+
+
+
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */
+
