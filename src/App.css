@@ -1,23 +1,55 @@
-*{
+* {
   text-decoration: none;
   font-family: 'Patrick Hand', cursive;
-  background-color: black;
   color: white;
 }
 
-.main-links {
-  float: left;
+.nav-container {
+  height: 2%;
+  width: 98%;
+  font-size: 1.3em;
+  padding: 0.5%;
+  display: flex;
+  justify-content: space-around;
   color: white;
-  padding-right: 1%;
+  text-align: center;
+  align-items: center;
+  background-color: black;
+
+}
+
+.home-link {
+  flex: 1;
+  padding: 1%;
+}
+
+.home-link:hover {
+  color: rgb(0, 204, 255);
+  border: 0.008em solid rgba(0, 204, 255, 0.5);
+}
+
+.catalog-link {
+  flex: 1;
+  padding: 1%;
+  margin-left: 2%;
+}
+
+.catalog-link:hover {
+  color: rgb(0, 204, 255);
+  border: 0.008em solid rgba(0, 204, 255, 0.5);
 }
 
 #logo {
+  flex: 5;
   color: rgb(0, 204, 255);
-  float: right;
+  background-color: black;
   font-family: 'PT Sans', sans-serif;
   font-weight: 600;
   letter-spacing: 0.1em;
+  font-size: 0.7em;
+  text-align: right;
 }
+
 
 
 

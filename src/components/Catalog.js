@@ -1,76 +1,88 @@
 import React, { Component } from 'react';
 import Movie from './Movie.js';
-import { Link } from 'react-router-dom';
 import '../styles/catalog.css'
 import '../styles/movie.css'
 
-// isFentityExist = (name) => {
-//     let results = [...this.state.wizards, ...this.state.bestiary].filter(fentity => fentity.name.toLowerCase() === name.toLowerCase());
-//     return results.length > 0;
-//   }
-
-// const fentity = this.props.state[fentitiesCategory].filter(f => { 
-//     return f.name.toLowerCase() === name.toLowerCase() })[0]
-// return (
-
 class Catalog extends Component {
 
+    // isMovieRented = (user, movies) => {
+    //    for (let movie in movies) {
+    //        if (user.rentedMovies.includes(movie)){
+    //            movie.isRented = true;
+    //        }
+    //    }
+    //    return movies;
+    // }
+
+
+    // findUserIndex = (currentUser, users) => {
+    //     for (let i in users) {
+    //       if (users[i].name === currentUser){
+    //         return i
+    //       } 
+    //     }
+    //     return null
+    //   }
+    
+    //   markRentedMovies = (movies, arr) => {
+    //     for (let movie in movies) {
+    //       if (arr.includes(movie)){
+    //         movie.isRented = true;
+    //       }
+    //     }
+    //     return movies;
+    //   }
+    
     render() {
-        const movies = this.props.state.movies
-        const rentedMovies = movies.filter(m => {
-            return m.isRented === true })
+        const currentUser = this.props.currentUser
+        let search = this.props.search
+        const movies = [...this.props.movies]
+        const users = [...this.props.users]
+        let userIndex = this.props.findUserIndex(currentUser, users)
+        const user = users[userIndex]
+        const rentedMovies = user.rentedMovies
+        const filteredMovies = this.props.markRentedMovies(movies, rentedMovies)
+        let searchedMovies = filteredMovies.filter(movie => {
+            return movie.title.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+        })
+        const searchedRentedMovies = rentedMovies.filter(movie => {
+            return movie.title.toLowerCase().indexOf(search.toLowerCase()) !== -1;
+        })
+
         return (
-            <div>
-                <div>
-                    <input type="text"  placeholder="Search"/> 
+            <div className="catalog-container">
+                <div className="searchAndBudgetContainer">
+                    <input type="text" className="searchBar" value={search} onChange={this.props.searchMovie} placeholder="Search" />
+                    <div className="budget">Budget: $ {user.budget}</div>
                 </div>
-                <div>Budget: $ budget-number</div>
-                { rentedMovies.length > 0 ? 
-                    ( "Rented:" ): ("") }
-                 <div className="rented-container">
-                    {rentedMovies.map(m => {
-                        return (
-                            <Movie
-                            key={m.id}
-                            id={m.id} 
-                            img={m.img}
-                            title={m.title}
-                            isRented={m.isRented} 
-                            movieRentingStatus={this.props.movieRentingStatus} />
-                        )}
-                    )}
-                 </div>    
-                Catalog:
-                <div className="catalog-container">
-                    {movies.map(m => {
-                        return (
-                            <Movie
-                            key={m.id}
-                            id={m.id} 
-                            img={m.img}
-                            title={m.title}
-                            isRented={m.isRented} 
-                            movieRentingStatus={this.props.movieRentingStatus} />
-                        )
-                    })}
-                </div>
+                {searchedRentedMovies.length > 0 ?
+                    (<div>
+                        <span className="moviesTypeHeader">Rented:</span>
+                        <MoviesContainer movies={searchedRentedMovies} rentMovie={this.props.rentMovie} />
+                    </div>)
+                    : ("")}
+                <span className="moviesTypeHeader">Catalog:</span>
+                <MoviesContainer movies={searchedMovies} rentMovie={this.props.rentMovie} />
             </div>
         )
     }
-} 
+}
 
-
-{/* <div id="fentities-container">
-{fentities.map(f => {
+const MoviesContainer = ({ movies, rentMovie }) => {
     return (
-        <Link to={`/directory/${fentitiesCategory}/${f.name.toLowerCase()}`}>
-            <div className="mini">
-                <img className="directory-img" src={f.imgUrl} alt="" />
-                <span>{f.name}</span>
-            </div>
-        </Link> 
+        <div className="movies-container">
+            {movies.map(m => {
+                return (
+                    <Movie
+                        id={m.id}
+                        img={m.img}
+                        title={m.title}
+                        isRented={m.isRented}
+                        rentMovie={rentMovie} />
+                )
+            })}
+        </div>
     )
-})}
-</div> */}
+}
 
 export default Catalog;
