@@ -1,0 +1,43 @@
+.catalog-container {
+    height: 800px;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.205);
+}
+
+.searchAndBudgetContainer {
+    height: 5%;
+    width: 99.5%;
+    padding: 0.5%;
+    margin: 1%;
+    padding-top: 1.5%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.searchBar {
+    flex: 1;
+    background-color: black;
+    font-size: 0.8em;
+    height: 80%;
+    border: transparent;
+    padding-left: 2%;
+   
+}
+
+.budget {
+    flex: 5;
+    text-align: right;
+    margin-right: 3%;
+}
+
+.moviesTypeHeader {
+    margin-left: 2.5%;
+    font-size: 1.3em;
+}
+
+.moviesTypeHeader:hover {
+    color: rgb(0, 204, 255);
+}

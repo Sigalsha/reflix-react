@@ -1,10 +1,86 @@
+
 .Landing {
-    height: 50%;
+    height: 600px;
     width: 100%;
+    background-color: rgba(128, 128, 128, 0.205);
 }
 
 .landing-header{
   font-weight: bold;
   text-transform: uppercase;
   font-size: 3em;
+  width: auto;
+  margin-left: 35%;
+  padding-top: 3%;
+  height: 10%;
+}
+
+.users-container {
+  height: 80%;
+  width: 96%;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  margin: 2%;
+  font-size: 2em;
+}
+
+.user-square {
+  flex: 1;
+  padding: 2.5%;
+  margin: 1%;
+  height: 25%;
+  width: 20%;
+  background-color: rgba(3, 169, 244, 0.6);
+  border-radius: 3%;
+  border: 0.25% solid black;
+}
+
+.userName {
+  text-align: center;
+  line-height: 3.5em;
+  color: black;
+}
+
+@media screen and (max-width: 700px){
+  .landing-header {
+    font-size: 1.9em;
+    margin-left: 35%;
+  }
+  .users-container {
+    flex-direction: column;
+    margin-top: 4%;
+    height: 70%; 
+    margin-top: 8%;  
+    /* -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; */
+  }
+  .user-square {
+    height: 20%;
+    font-size: 0.7em;
+    margin-top: 2.5%;
+    width: 25%;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .landing-header {
+    font-size: 1.3em;
+    margin-left: 32%;
+  }
+  .users-container {
+    flex-direction: column;
+    margin-top: 8%;
+    height: 60%;  
+    /* -webkit-flex-wrap: wrap;
+    flex-wrap: wrap; */
+  }
+  .user-square {
+    height: 18%;
+    font-size: 0.7em;
+    margin-top: 5%;
+    width: 30%;
+    padding-bottom: 6%;
+  }
 }

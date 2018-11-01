@@ -1,10 +1,27 @@
-.movie-container {
-    height: 40%;
-    width: 25%;
+.movies-container {
+    height: 30%;
+    width: 99.5%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 1%;
 }
 
+/* .movie-item {
+    flex: 1;
+    padding: 0.5%;
+} */
+
 .movie-image {
-    height: inherit;
-    width: inherit;
-    object-fit: contain;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 3%;
+    border: 0.25% solid black;
 }
+
+
+

@@ -5,13 +5,13 @@ import '../styles/movie.css'
 class Movie extends Component {
 
     handleRentingClick = () => {
-        this.props.movieRentingStatus(this.props.id, this.props.isRented)
+        this.props.rentMovie(this.props.id, this.props.isRented)
     }
 
     render() {
         return (
-            <div>
-                <Link to={`/movies/${this.props.id}`} className="movie-container" title={this.props.title}>
+            <div className="movie-item">
+                <Link to={`/movies/${this.props.id}`} className="link-item" title={this.props.title} key={this.props.key}>
                     <img src={this.props.img} alt="movie-image" className="movie-image"/>
                 </Link>
                 { this.props.isRented ? 
@@ -23,6 +23,7 @@ class Movie extends Component {
     }
 }
 
+//functional component example:
 // const RentingIcon = () => {
 //     return (
 //         <i id={id} onClick={this.handleRentingClick}></i>
