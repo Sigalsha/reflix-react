@@ -4,7 +4,11 @@ import './App.css';
 import Landing from './components/Landing.js';
 import Catalog from './components/Catalog.js';
 import MovieDetail from './components/MovieDetail.js';
-import Loading from 'react-loading-components';
+import Api from './components/Api'
+import axios from 'axios';
+import call from './ApiCalls'
+
+// import Loading from 'react-loading-components';
 // import FontAwesome from 'react-fontawesome';
 
 
@@ -20,10 +24,10 @@ class App extends Component {
         { id: 4, isRented: false, title: "Beauty and the Beast", year: 2016, img: "https://images-na.ssl-images-amazon.com/images/I/51ArFYSFGJL.jpg", descrShort: "Basically the same as the original, except now Hermi-- Emma Wattson plays Belle, fittingly so some would say, given how actively progressive she is regarding women's rights. Rumor has it that in the bonus scenes she whips out a wand and turns Gaston into a toad, but in order to watch those scenes you need to recite a certain incantation." }
       ],
       users: [
-        { name: 'Katniss', rentedMovies: [], budget: 10},
-        { name: 'Lara', rentedMovies: [], budget: 10},
-        { name: 'Xena', rentedMovies: [], budget: 10},
-        { name: 'Buffy', rentedMovies: [], budget: 10}
+        { name: 'Katniss', rentedMovies: [], budget: 10 },
+        { name: 'Lara', rentedMovies: [], budget: 10 },
+        { name: 'Xena', rentedMovies: [], budget: 10 },
+        { name: 'Buffy', rentedMovies: [], budget: 10 }
       ],
       currentUser: "",
       search: ""
@@ -41,7 +45,7 @@ class App extends Component {
     })
   }
 
-  componentDidMount = async ()=> {
+  componentDidMount = async () => {
     const state = await JSON.parse(localStorage.getItem('state'))
     if (state) {
       this.setState({
@@ -50,14 +54,34 @@ class App extends Component {
         currentUser: state.currentUser,
         search: state.search
       })
-    } 
+    } else {
+      
+      this.buildMovieData()
+        .then(res => this.setState({ movies: res }, () => console.log(this.state.movies)))
+        .catch(err => console.log(err))
+    }
+
   }
 
-  componentDidUpdate = async ()=> {
+  buildMovieData = async () => {
+    const results = await call.getMovies();
+    const movies = await results.map(m => {
+      return ({ 
+        id: m.id, 
+        isRented: false, 
+        title: m.title, 
+        year: m.release_date.split("-")[0], 
+        img: `http://image.tmdb.org/t/p/w185${m.poster_path}`, 
+        descrShort: m.overview })
+    })
+    return movies
+  };
+
+  componentDidUpdate = async () => {
     await localStorage.setItem('state', JSON.stringify(this.state))
   }
 
-  componentWillUnmount = async ()=> {
+  componentWillUnmount = async () => {
     await localStorage.setItem('state', JSON.stringify(this.state))
   }
 
@@ -68,16 +92,16 @@ class App extends Component {
 
   findUserIndex = (currentUser, users) => {
     for (let i in users) {
-      if (users[i].name === currentUser){
+      if (users[i].name === currentUser) {
         return i
-      } 
+      }
     }
     return null
   }
 
   markRentedMovies = (movies, arr) => {
     for (let movie in movies) {
-      if (arr.includes(movies[movie])){
+      if (arr.includes(movies[movie])) {
         movies[movie].isRented = true;
       }
     }
@@ -85,7 +109,7 @@ class App extends Component {
   }
 
   findMovieIndex = (movie, arr) => {
-    for (let i in arr){
+    for (let i in arr) {
       if (arr[i] === movie) {
         return i
       }
@@ -129,7 +153,7 @@ class App extends Component {
     //   movies: movies,
     //   budget: budget
     // }
-      // , () => localStorage.setItem('budget', JSON.stringify(this.state.budget)), () => localStorage.setItem('movies', JSON.stringify(this.state.movies)) 
+    // , () => localStorage.setItem('budget', JSON.stringify(this.state.budget)), () => localStorage.setItem('movies', JSON.stringify(this.state.movies)) 
     // )
   }
 
@@ -142,29 +166,35 @@ class App extends Component {
           <div className="nav-container">
             <Link to="/" className="home-link">Home</Link>
             <Link to="/catalog" className="catalog-link">Catalog</Link>
+            <Link to="/api" className="catalog-link">Api Test</Link>
             <Link to='/' id="logo">REFLIX</Link>
           </div>
           <div className="pages-container">
-            <Route path="/" exact render={() => 
-              <Landing 
-               users={state.users} 
-               chooseUser={this.chooseUser} />
+            <Route path="/" exact render={() =>
+              <Landing
+                users={state.users}
+                chooseUser={this.chooseUser} />
             } />
-            <Route path="/catalog" exact render={() => 
-              <Catalog 
-               search={state.search}
-               movies={state.movies}
-               users={state.users}
-               currentUser={state.currentUser}
-               findUserIndex={this.findUserIndex}
-               markRentedMovies={this.markRentedMovies}
-               rentMovie={this.rentMovie} 
-               searchMovie={this.searchMovie} />
+            <Route path="/api" exact render={() =>
+              <Api
+                users={state.users}
+                chooseUser={this.chooseUser} />
             } />
-            <Route path="/movies/:id" exact render={({ match }) => 
-              <MovieDetail 
-               match={match} 
-               movies={state.movies} />
+            <Route path="/catalog" exact render={() =>
+              <Catalog
+                search={state.search}
+                movies={state.movies}
+                users={state.users}
+                currentUser={state.currentUser}
+                findUserIndex={this.findUserIndex}
+                markRentedMovies={this.markRentedMovies}
+                rentMovie={this.rentMovie}
+                searchMovie={this.searchMovie} />
+            } />
+            <Route path="/movies/:id" exact render={({ match }) =>
+              <MovieDetail
+                match={match}
+                movies={state.movies} />
             } />
           </div>
         </div>

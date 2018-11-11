@@ -3,7 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.11",
     "react": "^16.5.2",
+    "react-dev-utils": "^6.1.1",
+    "react-router-dom": "^4.3.1",
     "react-dom": "^16.5.2",
     "react-loading-components": "^1.1.12",
     "react-scripts": "1.1.5"
@@ -13,5 +21,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). With reflix you can choose an user of your choice, search for a movie and \"rent\" it.  You have a limited budget for renting movies, so whenever you want, you can unrent a movie and gain back some of your budget.",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sigalsha/reflix-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sigalsha/reflix-react/issues"
+  },
+  "homepage": "https://github.com/Sigalsha/reflix-react#readme"
 }

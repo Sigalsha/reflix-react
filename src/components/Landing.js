@@ -8,6 +8,15 @@ class Landing extends Component {
         this.props.chooseUser(userName)
     }
 
+    randomUserColor = () => {
+        let x = Math.floor(Math.random() * 256);
+        let y = Math.floor(Math.random() * 256);
+        let z = Math.floor(Math.random() * 256);
+        let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+        console.log(bgColor);
+
+    }
+
     render() {
         const users = [...this.props.users]
         // const userColors = ['#ab47bc', '#e53935', '#ffa726', '#66bb6a']
@@ -25,13 +34,13 @@ class Landing extends Component {
                         return (
                             <Link to={`/catalog`} className="user-square" onClick={() => this.handleUserClick(u.name)}>
                                 <span className="userName">{u.name}</span>
-                            </Link> 
+                            </Link>
                         )
-                    })}    
+                    })}
                 </div>
             </div>
         )
     }
-} 
+}
 
 export default Landing;

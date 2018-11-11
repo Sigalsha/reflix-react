@@ -1,6 +1,6 @@
 
 .Landing {
-    height: 600px;
+    height: 1100px;
     width: 100%;
     background-color: rgba(128, 128, 128, 0.205);
 }
@@ -11,12 +11,11 @@
   font-size: 3em;
   width: auto;
   margin-left: 35%;
-  padding-top: 3%;
-  height: 10%;
+  padding-top: 1%;
 }
 
 .users-container {
-  height: 80%;
+  height: 50%;
   width: 96%;
   display: flex;
   justify-content: space-around;
@@ -39,9 +38,43 @@
 
 .userName {
   text-align: center;
-  line-height: 3.5em;
+  line-height: 2.5em;
   color: black;
 }
+
+.movie-item {
+  font-size: 1em;
+}
+
+.movie-image {
+  display: flex;
+  flex-wrap: row wrap;
+}
+
+.movie-title {
+  display: flex;
+  flex-wrap: row wrap;
+}
+
+.page-control {
+  width: 100%;
+  height: 3%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: row wrap;
+}
+
+.pageBtn {
+  width: 10%;
+  height: 100%;
+  border: 0.008em solid rgba(0, 204, 255, 0.5);
+}
+
+.pageBtn:hover {
+  cursor: pointer;
+  background-color: gold;
+}
+
 
 @media screen and (max-width: 700px){
   .landing-header {
@@ -63,6 +96,7 @@
     width: 25%;
   }
 }
+
 
 @media screen and (max-width: 400px){
   .landing-header {

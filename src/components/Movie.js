@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/movie.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
+import { faMinusSquare } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faPlusSquare)
+library.add(faMinusSquare)
 
 class Movie extends Component {
 
@@ -11,25 +18,18 @@ class Movie extends Component {
     render() {
         return (
             <div className="movie-item">
-                <Link to={`/movies/${this.props.id}`} className="link-item" title={this.props.title} key={this.props.key}>
-                    <img src={this.props.img} alt="movie-image" className="movie-image"/>
-                </Link>
-                { this.props.isRented ? 
-                            ( <i className="fas fa-minus-circle" onClick={this.handleRentingClick} > - </i> ) : 
-                            ( <i className="fas fa-plus-circle" onClick={this.handleRentingClick} > + </i> )
+                {this.props.isRented ?
+                    (<FontAwesomeIcon icon="minus-square" className="icon" onClick={this.handleRentingClick} />) :
+                    (<FontAwesomeIcon icon="plus-square" className="icon" onClick={this.handleRentingClick} />)
                 }
-            </div> 
+                <Link to={`/movies/${this.props.id}`} className="link-item" title={this.props.title} key={this.props.key}>
+                    <img src={this.props.img} alt="movie-image" className="movie-image" />
+                </Link>
+
+            </div>
         )
     }
 }
 
-//functional component example:
-// const RentingIcon = () => {
-//     return (
-//         <i id={id} onClick={this.handleRentingClick}></i>
-//         <i class="fas fa-plus-circle"></i>
-//         <i class="fas fa-minus-circle"></i>
-//     )
-// }
 
 export default Movie;
