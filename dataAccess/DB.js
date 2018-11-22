@@ -28,11 +28,10 @@ class DB {
         // this.Movie = mongoose.model('movie', this.movieeSchema)
     }
 
-    //a new user will get name from client + (manager: false) as defualt
-    //and will be saved in db
-    async createUser(userData) {
+    //a new user will get name from client and will be saved in db
+    async createUser(userName) {
         const newUser = await new this.User({
-            userName: userData.userName,
+            userName: userName,
             budget: 100
         });
         newUser.save((err, data) => {
@@ -48,46 +47,49 @@ class DB {
 
     //a new movie will be rented and saved to db  
     async addMovie(userData, movieData) {
-
         //find the user who rented the new movie
         const user = await this.findUserAndDecreaseBudget(userData._id, userData.budget);
-
         let movie = movieData;
-
         //add movie to the user
         user.movies.push(movie)
-
         //save changes in user
         this.saveUpdatedUser(user);
     }
 
     //a movie will be unrented and removed from the db
     async removeMovie(userData, movieID) {
-
         //find the user
         const user = await this.findUserAndIncreaseBudget(userData._id, userData.budget)
-        
         //remove the movie from the user's movies 
         user.movies.id(movieID).remove((err)=> {
             if (err) {
                 console.log(err)
             } 
         });
-
         //save changes in user
         this.saveUpdatedUser(user);
     }
 
-    async findUser(userID) {
-        const user = await this.User.findById(
-            { _id: userID }, (err, user) => {
+    async findUser(userName) {
+        const user = await this.User.findOne(
+            { userName: userName }, (err, user) => {
                 if (err) {
                     console.log(err)
                 }
-                console.log(user._id)
+                console.log(user.userName)
             }
         )
         return user;
+    }
+
+    async findAllUsers() {
+        const users = await this.User.find((err, users)=> {
+            if (err) {
+                console.log(err)
+            }
+            console.log(users)
+        })
+        return users;
     }
 
     async findUserAndDecreaseBudget(userID, budget) {

@@ -9,21 +9,25 @@ import { faMinusSquare } from '@fortawesome/free-solid-svg-icons'
 library.add(faPlusSquare)
 library.add(faMinusSquare)
 
+
 class Movie extends Component {
 
     handleRentingClick = () => {
-        this.props.rentMovie(this.props.id, this.props.isRented)
+        this.props.rentMovie(this.props.id)
     }
 
     render() {
+
+        const { icon, id, title, image_base_path, img } = this.props
+
         return (
             <div className="movie-item">
-                {this.props.isRented ?
-                    (<FontAwesomeIcon icon="minus-square" className="icon" onClick={this.handleRentingClick} />) :
-                    (<FontAwesomeIcon icon="plus-square" className="icon" onClick={this.handleRentingClick} />)
-                }
-                <Link to={`/movies/${this.props.id}`} className="link-item" title={this.props.title} key={this.props.key}>
-                    <img src={this.props.img} alt="movie-image" className="movie-image" />
+
+                <FontAwesomeIcon icon={icon} className="icon" onClick={this.handleRentingClick} />
+
+                <Link to={`movies/${id}`} title={title} key={id}>
+                    <img src={`${image_base_path}${img}`} className="movie-image" alt={title} />
+                    <span className="movie-title">{title}</span>
                 </Link>
 
             </div>

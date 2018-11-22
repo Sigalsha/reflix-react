@@ -1,0 +1,26 @@
+[
+    {
+        "_id": "5be84d93a9a9be67360baeca",
+        "userName": "Katniss",
+        "budget": 100,
+        "movies": []
+    },
+    {
+        "_id": "5be84d93a9a9be67360baecc",
+        "userName": "Xena",
+        "budget": 100,
+        "movies": []
+    },
+    {
+        "_id": "5be84d93a9a9be67360baecd",
+        "userName": "Buffy",
+        "budget": 100,
+        "movies": []
+    },
+    {
+        "_id": "5be84d93a9a9be67360baecb",
+        "userName": "Lara",
+        "budget": 100,
+        "movies": []
+    }
+]

@@ -1,120 +1,72 @@
-
-.Landing {
-    height: 1100px;
+#Landing {
+    height: 800px;
     width: 100%;
     background-color: rgba(128, 128, 128, 0.205);
 }
 
-.landing-header{
+#landing-header{
   font-weight: bold;
   text-transform: uppercase;
   font-size: 3em;
   width: auto;
   margin-left: 35%;
-  padding-top: 1%;
+  padding-top: 2.5%;
 }
 
-.users-container {
-  height: 50%;
+#users-container {
+  height: 25%;
   width: 96%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
   align-items: center;
   margin: 2%;
-  font-size: 2em;
+  font-size: 2.6em;
 }
 
 .user-square {
   flex: 1;
-  padding: 2.5%;
-  margin: 1%;
-  height: 25%;
-  width: 20%;
-  background-color: rgba(3, 169, 244, 0.6);
+  padding: 2%;
+  margin: 2%;
+  height: 30%;
   border-radius: 3%;
+  border: 3 solid black;
   border: 0.25% solid black;
 }
 
 .userName {
   text-align: center;
-  line-height: 2.5em;
+  line-height: 1.5em;
   color: black;
 }
 
-.movie-item {
-  font-size: 1em;
-}
+@media screen and (max-width: 768px){
 
-.movie-image {
-  display: flex;
-  flex-wrap: row wrap;
-}
-
-.movie-title {
-  display: flex;
-  flex-wrap: row wrap;
-}
-
-.page-control {
-  width: 100%;
-  height: 3%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: row wrap;
-}
-
-.pageBtn {
-  width: 10%;
-  height: 100%;
-  border: 0.008em solid rgba(0, 204, 255, 0.5);
-}
-
-.pageBtn:hover {
-  cursor: pointer;
-  background-color: gold;
-}
-
-
-@media screen and (max-width: 700px){
-  .landing-header {
-    font-size: 1.9em;
-    margin-left: 35%;
+  #landing-header{
+    font-size: 2em;
+    height: 80hv;
+    width: 60wv;
+    margin-left: 25%;
+    padding-top: 15%;
   }
-  .users-container {
+
+  #users-container {
     flex-direction: column;
     margin-top: 4%;
-    height: 70%; 
-    margin-top: 8%;  
-    /* -webkit-flex-wrap: wrap;
-    flex-wrap: wrap; */
+    height: 80hv; 
   }
+  
   .user-square {
+    padding: 4%;
+    margin: 4%;
     height: 20%;
     font-size: 0.7em;
-    margin-top: 2.5%;
     width: 25%;
   }
-}
 
-
-@media screen and (max-width: 400px){
-  .landing-header {
-    font-size: 1.3em;
-    margin-left: 32%;
-  }
-  .users-container {
-    flex-direction: column;
-    margin-top: 8%;
-    height: 60%;  
-    /* -webkit-flex-wrap: wrap;
-    flex-wrap: wrap; */
-  }
-  .user-square {
-    height: 18%;
-    font-size: 0.7em;
-    margin-top: 5%;
-    width: 30%;
-    padding-bottom: 6%;
-  }
 }
+  
+  
+  
+  
+ 

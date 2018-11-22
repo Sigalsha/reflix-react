@@ -50,35 +50,39 @@
   text-align: right;
 }
 
-
-
-
-/* .App {
-  text-align: center;
+#loader {
+  margin-left: 45%;
+  margin-top: 15%;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
+@media screen and (max-width: 768px){
+  
+  .nav-container{
+    justify-content: space-evenly ;
+  }
 
-.App-title {
-  font-size: 1.5em;
-}
+  #logo {
+    flex: 3;
+    margin-right: 5%;
+  }
 
-.App-intro {
-  font-size: large;
-}
+  .home-link {
+    flex: 3;
+  }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-} */
+  .catalog-link {
+    flex: 3;
+  }
+
+  #loader {
+    margin-left: 25%;
+    margin-top: 40%;
+  }
+
+}  
+  
+  
+  
+ 
 

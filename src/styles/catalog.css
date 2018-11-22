@@ -1,10 +1,10 @@
-.catalog-container {
-    height: 1200px;
+#catalog-container {
+    height: 1400px;
     width: 100%;
     background-color: rgba(128, 128, 128, 0.205);
 }
 
-.searchAndBudgetContainer {
+#search_budget_con {
     height: 5%;
     width: 99.5%;
     padding: 0.5%;
@@ -17,27 +17,110 @@
     font-size: 1.3em;
 }
 
-.searchBar {
+#budget {
+    flex: 5;
+    text-align: left;
+    margin-left: 70%;
+    letter-spacing: 0.1em;
+}
+
+#searchBar {
     flex: 1;
     background-color: black;
     font-size: 0.8em;
-    height: 80%;
+    height: 50%;
     border: transparent;
-    padding-left: 2%;
-   
+    padding-left: 2%; 
 }
 
-.budget {
-    flex: 5;
-    text-align: right;
-    margin-right: 3%;
+.divider {
+    height: 5%;
+    background-color:rgba(128, 128, 128, 0.1)
 }
 
-.moviesTypeHeader {
+.movies_type_header {
     margin-left: 2.5%;
     font-size: 1.3em;
 }
 
-.moviesTypeHeader:hover {
+.movies_type_header:hover {
     color: rgb(0, 204, 255);
+}
+
+.ant-pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: row wrap;
+}
+  
+.rc-pagination-item {
+    background-color: transparent;
+    font-weight: 600;
+}
+  
+.rc-pagination-item:hover, 
+.rc-pagination-next:hover, 
+.rc-pagination-prev:hover, 
+.rc-pagination-jump-prev, 
+.rc-pagination-jump-prev:hover  {
+    background-color: transparent;
+    font-weight: 700;
+}
+
+.movies-container {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start; 
+}
+
+/* .rentedMovies-container {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;  
+} */
+
+
+
+@media screen and (max-width: 768px){
+    #catalog-container {
+        height: 1600px;
+    }
+    
+    #search_budget_con {
+        padding-top: 1.5%;
+        font-size: 1.2em;
+    }
+    
+    #budget {
+        margin-left: 14%;
+        font-size: 0.9em;
+        letter-spacing: 0.07em;
+    }
+    
+    #searchBar {
+        flex: 0.5;
+        margin-left: 3%;
+    }
+    
+    .movies_type_header {
+        margin-left: 5%;
+        font-size: 1.2em;
+    }
+    
+    .ant-pagination {
+        margin-top: 5%;
+    }
+      
+    .movies-container {
+        margin-left: 10%;
+        flex-wrap: column wrap;
+        justify-content: space-around;   
+    }
+    
 }
