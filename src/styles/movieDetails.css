@@ -1,57 +1,96 @@
-.movieDetail-container {
+#movie_detail_wrapper {
     height: 100%;
-    width: 75%;
-    padding: 2%;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.205);
+}
+
+#movieDetail-container {
+    padding-top: 2%;
     margin-left: 10%;
     margin-right: 10%;
-    background-color: rgba(128, 128, 128, 0.205);
     display: grid;
-    grid-gap: 1%;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 0.5fr 3fr;
+    grid-gap: 2%;
+    grid-template-columns: 0.65fr 2fr;
+    grid-template-rows: 0.65fr 3fr;
     grid-template-areas: 
     "h h"
     "i d";
-    flex-wrap: column wrap; 
-    justify-content: center;
-    text-align: center;
 }
 
 .movie-title-detail {
     grid-area: h;
-    width: 100%; 
-    display: flex;
-    flex-wrap: row wrap;
-    justify-content: flex-start;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    font-size: 1.8em;
-    padding: 1%;
+    font-size: 1.7em;
+    color: rgb(0, 204, 255);
 }
 
 .movieImage {
     grid-area: i;
     border: 0.25% solid rgba(240, 240, 240, 0.9);
     border-radius: 3%;
-    margin-left: 20%;
-    padding-top: 1%;
-    /* padding-left: 25%;  */
-    /* display: flex;
-    justify-content: center; */
 }
 
 .movie-desc {
-    /* width: 85%;
-    height: 35%; */
     grid-area: d;
-    padding: 1%;
     text-align: initial;
     line-height: 1.5;
     font-size: 1.2em;
-    letter-spacing: 0.1em;
-    display: flex;
+    letter-spacing: 0.07em;
     font-weight: 300;
-    /* flex-wrap: column wrap; */
-    /* justify-content: space-between */
+}
+
+#back_icon {
+    height: 5%;
+    width: 5%;
+    margin-left: 1%;
+    padding: 2%;  
+}
+
+@media screen and (max-width: 768px){
+    #movieDetail-container {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        padding-top: 1%;
+    }
+    
+    .movie-title-detail {
+        letter-spacing: 0.05em;
+        font-size: 1.2em;
+        line-height: 1.5;
+        display: flex;
+        flex-wrap: row wrap;
+        justify-content: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+        
+    .movieImage {
+        margin-left: 25%;
+        height: 175px;
+        width: 125px;
+        border: 0.25% solid rgba(240, 240, 240, 0.9);
+        border-radius: 8%;
+    }
+    
+    .movie-desc {
+        height: 30%;
+        line-height: 1.5;
+        font-size: 1.2em;
+        letter-spacing: 0.07em;
+        font-weight: 300;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    #back_icon {
+        height: 10%;
+        width: 10%;
+        margin-left: 7%;
+        padding-bottom: 10%;
+    }
+
+
 }

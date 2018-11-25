@@ -6,9 +6,7 @@
     border-radius: 3%;
     margin-block-start: 1%;
     margin-inline-start: 1%;
-    display: flex;
-    /* flex-wrap: wrap; */
-    
+    display: flex;    
 }
 
 .movie-image {
@@ -32,6 +30,7 @@
 .icon {
     display: flex;
     justify-content: flex-start;
+    padding-right: 2%;
 }
 
 .icon:hover {
@@ -41,15 +40,22 @@
 @media screen and (max-width: 768px){
     .movie-item {
         padding: 1%;
+        padding-top: 2%;
+        padding-bottom: 2%; 
         height: 10%;
-        width: 35%;
+        width: 45%;
         border: 2px solid transparent;
         border-radius: 3%;
         margin-block-start: 1%;
         margin-inline-start: 1%;
-        display: flex;
-        /* flex-wrap: wrap; */   
+        /* display: flex; */
     }
+
+    .movie-title {
+        display: none;
+    }
+
+
 
 }
 

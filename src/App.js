@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar'
 import Landing from './components/Landing.js';
@@ -70,7 +70,7 @@ class App extends Component {
 
   findUserIndex = (currentUser, users) => {
     for (let i in users) {
-      if (users[i] === currentUser) {
+      if (users[i]._id === currentUser._id) {
         return i
       }
     }
@@ -169,7 +169,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Navbar />
+          <Navbar currentUser={currentUser.userName}/>
           <div className="pages-container">
             <Route path="/" exact render={() =>
               <Landing

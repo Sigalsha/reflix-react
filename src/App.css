@@ -4,11 +4,16 @@
   color: white;
 }
 
+.pages-container{
+  width: 100%;
+  height: 100%;
+}
+
 .nav-container {
-  height: 2%;
-  width: 98%;
+  width: 95%;
   font-size: 1.3em;
   padding: 0.5%;
+  padding-bottom: 0;
   display: flex;
   justify-content: space-around;
   color: white;
@@ -34,6 +39,12 @@
   margin-left: 2%;
 }
 
+.catalog-no-link {
+  flex: 1;
+  padding: 1%;
+  margin-left: 2%;
+}
+
 .catalog-link:hover {
   color: rgb(0, 204, 255);
   border: 0.008em solid rgba(0, 204, 255, 0.5);
@@ -46,8 +57,12 @@
   font-family: 'PT Sans', sans-serif;
   font-weight: 600;
   letter-spacing: 0.1em;
-  font-size: 0.7em;
+  font-size: 0.8em;
   text-align: right;
+}
+
+#logo:hover {
+  font-weight: 600;
 }
 
 #loader {

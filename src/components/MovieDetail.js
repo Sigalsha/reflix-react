@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/movieDetails.css'
 import call from '../ApiCalls'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
+library.add(faChevronCircleLeft)
 
 class MovieDetail extends Component {
     constructor(props) {
@@ -36,7 +41,7 @@ class MovieDetail extends Component {
         const movie = currentMovie
 
         return (
-            <div className="movieDetail-container">
+            <div id="movieDetail-container">
                 <div className="movie-title-detail">{movie.title} ({year})</div>
                 <img className="movieImage" src={`${image_base_path}${movie.poster_path}`} alt={movie.title}></img>
                 <div className="movie-desc">{movie.overview}</div>
@@ -45,11 +50,13 @@ class MovieDetail extends Component {
     }
 
     render() {
-        // const movieID = this.props.match.params.id
 
         return (
-            <div>
+            <div id="movie_detail_wrapper">
                 {this.getMovieDetails()}
+                <Link to="/catalog">
+                    <FontAwesomeIcon icon={"chevron-circle-left"} id="back_icon" />
+                </Link>
             </div>
         )
     }
