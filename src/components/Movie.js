@@ -13,12 +13,13 @@ library.add(faMinusSquare)
 class Movie extends Component {
 
     handleRentingClick = () => {
-        this.props.rentMovie(this.props.id)
+        const { rentMovie, id } = this.props;
+        rentMovie(id);
     }
 
     render() {
 
-        const { icon, id, title, image_base_path, img } = this.props
+        const { icon, id, title, image_base_path, img } = this.props;
 
         return (
             <div className="movie-item">

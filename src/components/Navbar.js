@@ -6,7 +6,8 @@ import '../App.css';
 class Navbar extends Component {
 
     checkCurrentUser = () => {
-        if (this.props.currentUser) {
+        const { currentUser } = this.props;
+        if (currentUser) {
             return (
                 <Link to="/catalog" className="catalog-link">Movies</Link>
             )
@@ -19,7 +20,7 @@ class Navbar extends Component {
     }
 
     alertChooseUser = () => {
-        alert("Please choose an user")
+        alert("Please choose an user");
     }
 
     render() {

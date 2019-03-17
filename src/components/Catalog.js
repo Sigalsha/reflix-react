@@ -47,7 +47,6 @@ class Catalog extends Component {
     }
 
     onPageChange = async (page) => {
-        console.log(page);
         call.getMoviesFromApi(page)
             .then(res =>
                 this.setState({
@@ -81,7 +80,6 @@ class Catalog extends Component {
 
 
     onSearchPageChange = async (page) => {
-        console.log('new page number: ' + page);
         call.searchMovie(this.state.search, page)
             .then(res =>
                 this.setState({
@@ -104,19 +102,19 @@ class Catalog extends Component {
     }
 
 
-    handleSearchChange = (event) => {
-        let search_item = event.target.value.toLowerCase()
-        this.searchMovies(search_item, this.state.currentSearchPage)
+    handleSearchChange = (e) => {
+        const { currentSearchPage } = this.state;
+        let search_item = e.target.value.toLowerCase()
+        this.searchMovies(search_item, currentSearchPage)
         this.setState({ search: "" })
     }
 
     render() {
         const { loading, currentMoviesPerPage, search, image_base_path, currentSearchMovies } = this.state
-        const { currentUser } = this.props
-        const { movies } = currentUser
+        const { currentUser, rentMovie, findMovieIndex } = this.props;
+        const { movies } = currentUser;
 
         const searchedRentedMovies = movies.filter(m => m.title.toLowerCase().includes(search))
-        console.log(searchedRentedMovies)
 
         if (loading) {
             return (
@@ -139,20 +137,20 @@ class Catalog extends Component {
                             searchedRentedMovies={searchedRentedMovies}
                             icon={"minus-square"}
                             image_base_path={image_base_path}
-                            rentMovie={this.props.rentMovie} />
+                            rentMovie={rentMovie} />
                     </div>)
                     : ("")}
 
                 <MoviesTypeHeader text={"Catalog:"} />
 
-                {this.state.search !== "" ?
+                {search !== "" ?
                     (<div>
                         {this.paginateSearchResults()}
                         <SearchedMovies
                             currentSearchMovies={currentSearchMovies}
                             image_base_path={image_base_path}
-                            rentMovie={this.props.rentMovie}
-                            findMovieIndex={this.props.findMovieIndex}
+                            rentMovie={rentMovie}
+                            findMovieIndex={findMovieIndex}
                             movies={movies} />
                         {this.paginateSearchResults()}
                     </div>)
@@ -161,8 +159,8 @@ class Catalog extends Component {
                         <AllMovies
                             currentMoviesPerPage={currentMoviesPerPage}
                             image_base_path={image_base_path}
-                            rentMovie={this.props.rentMovie}
-                            findMovieIndex={this.props.findMovieIndex}
+                            rentMovie={rentMovie}
+                            findMovieIndex={findMovieIndex}
                             movies={movies} />
                         {this.paginate()}
                     </div>)}

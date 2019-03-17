@@ -21,7 +21,8 @@ class MovieDetail extends Component {
 
 
     componentDidMount = async () => {
-        call.getMovieById(this.state.movieID)
+        const { movieID } = this.state;
+        call.getMovieById(movieID)
             .then(res =>
                 this.setState({
                     currentMovie: res,
@@ -37,8 +38,8 @@ class MovieDetail extends Component {
     }
 
     getMovieDetails = () => {
-        const { currentMovie, image_base_path, year } = this.state
-        const movie = currentMovie
+        const { currentMovie, image_base_path, year } = this.state;
+        const movie = currentMovie;
 
         return (
             <div id="movieDetail-container">

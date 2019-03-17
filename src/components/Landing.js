@@ -5,8 +5,8 @@ import '../styles/landing.css'
 class Landing extends Component {
 
     handleUserClick = (userName) => {
-        this.props.chooseUser(userName)
-        console.log("userName in landing.js: " + userName)
+        const { chooseUser } = this.props;
+        chooseUser(userName);
     }
 
     render() {
