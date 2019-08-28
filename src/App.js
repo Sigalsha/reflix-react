@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar'
-import Landing from './components/Landing.js';
+import Landing from './components/Landing';
 import MovieDetail from './components/MovieDetail.js';
 import Catalog from './components/Catalog'
 import call from './ApiCalls'
