@@ -8,13 +8,10 @@ This is an OOP ReactJS project, in which you can:
 4. Rent it accordingly to your budget limits.  
 
 ## Users
-
-![users page](https://github.com/Sigalsha/reflix-react/tree/master/src/images/landing_page.png)
+<img src="src/images/landing_page.png" alt="users" height="300" width="600">
 
 ## Movies
-
-![movies page](https://github.com/Sigalsha/reflix-react/tree/master/src/images/movies_catalog.png)
-
+<img src="src/images/movies_catalog.png" alt="movies" height="800" width="350">
 
 
 The source of data for the users is a data.json, but a preparation for connection to MongoDB was made on the server-side.
